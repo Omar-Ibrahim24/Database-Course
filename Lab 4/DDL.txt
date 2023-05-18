@@ -1,0 +1,72 @@
+
+
+CREATE DATABASE lab4;
+
+
+
+CREATE TABLE customer(
+	customer_id int,
+    customer_name varchar(255),
+    city varchar(255) ,
+   
+	PRIMARY KEY (customer_id)
+
+);
+
+
+
+
+
+CREATE TABLE orders(
+	order_id int,
+	order_date Date,
+	customer_id int,
+	PRIMARY KEY(order_id)
+);
+
+
+
+CREATE TABLE order_item(
+	order_id int,
+	item_id int,
+	quantity int,
+	PRIMARY KEY(order_id,item_id)
+
+);
+
+
+CREATE TABLE item(
+	item_id int,
+	unit_price float,
+	
+	PRIMARY KEY(item_id)
+
+);
+
+
+CREATE TABLE shipment(
+	order_id int,
+	warehouse_id int,
+	ship_date Date,
+	PRIMARY KEY(order_id,warehouse_id)
+);
+
+
+
+CREATE TABLE warehouse(
+	warehouse_id int,
+	warehouse_city varchar(255),
+	PRIMARY KEY(warehouse_id)
+
+);
+
+
+ALTER TABLE orders ADD FOREIGN KEY (customer_id) REFERENCES customer(customer_id);
+
+ALTER TABLE order_item ADD FOREIGN KEY (order_id) REFERENCES orders(order_id);
+ALTER TABLE order_item ADD FOREIGN KEY (item_id) REFERENCES item(item_id);
+ALTER TABLE shipment ADD FOREIGN KEY (order_id) REFERENCES orders(order_id);
+
+ALTER TABLE shipment ADD FOREIGN KEY (warehouse_id) REFERENCES warehouse(warehouse_id);
+
+

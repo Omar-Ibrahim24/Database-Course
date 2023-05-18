@@ -1,0 +1,17 @@
+
+DELETE FROM department WHERE mgr_ssn=110;
+
+1-Foreign Key constraint Fails
+Cannot delete or update a parent row: a foreign key constraint fails (`lab3`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Dno`) REFERENCES `department` (`Dnumber`))
+
+
+INSERT INTO `project` VALUES
+(30, 'Omar', 'gleem', '11');
+
+2-Foreign Key Constraints Fails
+"Cannot add or update a child row: a foreign key constraint fails (`lab3`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Dno`) REFERENCES `department` (`Dnumber`))"
+
+3-You need to remove foreign keys constraint then add the first record then return the foreign keys back 
+
+
+

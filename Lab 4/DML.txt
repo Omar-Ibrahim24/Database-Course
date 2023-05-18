@@ -1,0 +1,60 @@
+1-
+select *
+from customer
+where customer_name like 'Ma%' 
+
+
+
+
+
+2-
+SELECT order_id as OrderID,COUNT(order_id) as CountofItems,SUM(quantity) as QuantityCount,Sum(unit_price*quantity) as TotalPrice
+FROM order_item 
+INNER JOIN item  
+USING(item_id)
+GROUP BY(order_id)
+
+
+3-
+
+SELECT order_id 
+FROM shipment 
+INNER JOIN warehouse  
+USING(warehouse_id)
+WHERE warehouse_city='Arica'
+
+
+4-
+select SUM(i.quantity*k.unit_price) as TotalPrice
+from shipment as s 
+INNER JOIN order_item as i
+USING(order_id)
+INNER JOIN item as k
+USING(item_id)
+WHERE s.warehouse_id=8
+
+
+5-
+SELECT w.warehouse_id as WarehouseId , w.warehouse_city as City, COUNT(order_id) as Count
+FROM shipment as s
+RIGHT JOIN warehouse as w
+USING(warehouse_id)
+GROUP BY (warehouse_id)
+
+
+
+6-
+SELECT c.customer_name as CustomerName , COUNT(m.order_id) as Count
+FROM customer as c
+LEFT JOIN orders as m
+USING(customer_id)
+GROUP BY (c.customer_name)
+
+
+
+7-
+SELECT item_id,unit_price FROM item
+LEFT JOIN order_item 
+USING(item_id)
+WHERE order_item.item_id IS NULL;  
+

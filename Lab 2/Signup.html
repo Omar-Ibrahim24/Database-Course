@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 300;
+                font-size: 15px;
+                line-height: 1.7;
+                color: #c4c3ca;
+                background-color: #1f2029;
+                overflow-x: hidden;
+    
+            }
+    
+            h1 {
+                display: inline-block;
+                width: 90%;
+                color: white;
+                margin-left: 40px;
+            }
+    
+            input[type=email]:focus {
+                background-color: lightblue;
+            }
+    
+            input[type=password]:focus {
+                background-color: lightblue;
+            }
+    
+    
+            input[type=button],
+            input[type=submit] {
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 8px 16px;
+                text-decoration: none;
+                margin: 2px 1px;
+                cursor: pointer;
+            }
+        </style>
+
+    </head>
+    
+
+<body>
+
+
+    <h1> SignUp
+    </h1>
+
+
+    <form action="combine.php" method="post">
+        <input type="text" id="name" name="name" placeholder="Name:"> <br> <br>
+        <input type="email" id="email" name="email" placeholder="Email Address"> <br> <br>
+        <input type="password" id="password" name="password" placeholder="Password:" autocomplete="off" /> <br> <br>
+        <input type="password" id="Re-password" name="Re-password" placeholder="Renter Password:" autocomplete="off" />
+        <br> <br>
+
+        <input type="submit" name="Signup" value="Signup" onclick="return Confirm()">
+
+
+
+
+    </form>
+
+    <script>
+
+        function Confirm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var renterd_password = document.getElementById("Re-password").value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (name == '') {
+                alert("please enter Name");
+                return false;
+            }
+            else if (email == '') {
+                alert("Please enter Email")
+                return false;
+            }
+            else if (password == '') {
+                alert("enter the password");
+                return false;
+            }
+            else if (renterd_password == '') {
+                alert("enter the password again");
+                return false;
+            }
+            else if (!filter.test(email)) {
+                alert("Enter valid email");
+                return false;
+            }
+            else if (password.length < 6) {
+                alert("Password minimum characters  is 6 Characters.");
+                return false;
+            }
+            else if (password != renterd_password) {
+                alert("please Check password is same  again");
+                return false;
+            }
+            else {
+
+                alert(" Sign Up Data is Being Checked");
+                return true;    // in success case
+
+            }
+
+        }	
+    </script>
+
+
+
+
+
+</body>
+
+</html>
