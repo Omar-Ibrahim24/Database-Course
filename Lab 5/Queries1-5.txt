@@ -1,0 +1,63 @@
+1-
+select  DISTINCT x.student_name
+from student as x
+inner join enrolled as e
+on x.student_id=e.student_id
+inner join semester_course as s
+on e.course_code=s.course_code and e.quarter=s.quarter and e.year=s.year
+where x.level="SR" and s.prof_id=1
+
+
+2-select max(s.age)
+from student as s
+where s.major="History" or s.student_id in (select x.student_id
+                                            from student as x
+                                            inner join enrolled as e
+                                            on x.student_id=e.student_id
+                                            INNER join semester_course as c
+                                            on c.course_code=e.course_code
+                                            where c.prof_id in (select prof_id
+                                                                from professor
+                                                                where prof_name='Michael Miller'))
+                                            
+3-SELECT s.student_name,c.name
+from student as s 
+LEFT join enrolled as e
+on s.student_id=e.student_id
+left join course as c
+on c.course_code=e.course_code
+
+
+4-
+select p.prof_name FROM
+(
+select p.prof_id, count( e.student_id) as counter
+from professor as p
+left join semester_course as s
+on p.prof_id=s.prof_id
+left join enrolled as e
+on s.course_code =e.course_code  and s.quarter=e.quarter and s.year= e.year
+group by p.prof_id
+having counter<5
+) as ds
+
+inner join professor as p
+on p.prof_id=ds.prof_id 
+                   
+
+
+5-
+select x.student_name
+from student as x
+where NOT EXISTS
+(
+ (select s.course_code,s.quarter,s.year
+ from semester_course as s
+ where s.prof_id=2
+ )
+ Except
+ (select e.course_code ,e.quarter,e.year
+  from enrolled as e
+  where e.student_id=x.student_id)
+)
+                                             

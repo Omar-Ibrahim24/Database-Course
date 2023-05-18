@@ -1,0 +1,208 @@
+
+-- Question 1 
+
+/* RESULT:
+'Maria White'
+'Charles Harris'
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Question 2
+/* RESULT:
+22
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-- Question 3
+
+/* RESULT (58 rows)
+'Maria White', 'Data Structures'
+'Maria White', 'Data Structures'
+'Maria White', 'Archaeology of the Incas'
+'Maria White', 'Aviation Accident Investigation'
+'Charles Harris', 'Data Structures'
+'Charles Harris', 'Database Systems'
+'Charles Harris', 'Operating System Design'
+'Charles Harris', 'Air Quality Engineering'
+'Susan Martin', 'Database Systems'
+'Susan Martin', 'Operating System Design'
+'Susan Martin', 'Archaeology of the Incas'
+'Joseph Thompson', 'Data Structures'
+'Joseph Thompson', 'American Political Parties'
+'Joseph Thompson', 'Social Cognition'
+'Christopher Garcia', 'Operating System Design'
+'Angela Martinez', 'Data Structures'
+'Thomas Robinson', 'Database Systems'
+'Thomas Robinson', 'Introductory Latin'
+'Margaret Clark', 'Data Structures'
+'Margaret Clark', 'Operating System Design'
+'Margaret Clark', 'Archaeology of the Incas'
+'Margaret Clark', 'Aviation Accident Investigation'
+'Margaret Clark', 'Air Quality Engineering'
+'Juan Rodriguez', 'Data Structures'
+'Juan Rodriguez', 'Archaeology of the Incas'
+'Juan Rodriguez', 'Aviation Accident Investigation'
+'Dorthy Lewis', 'Data Structures'
+'Dorthy Lewis', 'Database Systems'
+'Dorthy Lewis', 'Aviation Accident Investigation'
+'Dorthy Lewis', 'Air Quality Engineering'
+'Dorthy Lewis', 'Introductory Latin'
+'Daniel Lee', 'Data Structures'
+'Daniel Lee', 'Archaeology of the Incas'
+'Daniel Lee', 'Air Quality Engineering'
+'Daniel Lee', 'Introductory Latin'
+'Daniel Lee', 'American Political Parties'
+'Lisa Walker', 'Data Structures'
+'Lisa Walker', 'Archaeology of the Incas'
+'Lisa Walker', 'American Political Parties'
+'Lisa Walker', 'Social Cognition'
+'Paul Hall', 'Data Structures'
+'Paul Hall', 'Operating System Design'
+'Paul Hall', 'Social Cognition'
+'Nancy Allen', 'Operating System Design'
+'Nancy Allen', 'Aviation Accident Investigation'
+'Mark Young', 'Data Structures'
+'Mark Young', 'Database Systems'
+'Mark Young', 'Operating System Design'
+'Mark Young', 'Aviation Accident Investigation'
+'Mark Young', 'Air Quality Engineering'
+'Luis Hernandez', 'Data Structures'
+'Luis Hernandez', 'Data Structures'
+'Luis Hernandez', 'Data Structures'
+'Luis Hernandez', 'Database Systems'
+'Luis Hernandez', 'Operating System Design'
+'Luis Hernandez', 'Air Quality Engineering'
+'Donald King', NULL
+'George Wright', NULL
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Question 4
+-- left join is used to include those who has teached not course at all (0 is less than 5)
+                                        
+/* RESULT:
+'John Williams'
+'Linda Davis'
+'Mary Johnson'
+'Patricia Jones'
+'Robert Brown'
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Question 5
+
+/* RESULT:
+empty
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Question 6
+
+/* RESULT:
+'Patent Law'
+'Urban Economics'
+'Organic Chemistry'
+'Perception'
+'Data Structures'
+'Multivariate Analysis'
+'Operating System Design'
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Question 7
+
+/* RESULT
+'Margaret Clark'
+'Mark Young'
+'Michael Miller'
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Question 8
+-- left join because there exist professors that are in those departments but taught no courses
+
+/* RESULT
+'Mary Johnson', '3'
+'Patricia Jones', '5'
+'Robert Brown', '7'
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Question 9
+
+/* RESULT: 43 rows
+
+'Maria White', 'Michael Miller'
+'Maria White', 'James Smith'
+'Maria White', 'Ivana Teach'
+'Charles Harris', 'Ivana Teach'
+'Charles Harris', 'Michael Miller'
+'Susan Martin', 'Michael Miller'
+'Joseph Thompson', 'Ivana Teach'
+'Joseph Thompson', 'James Smith'
+'Christopher Garcia', 'Michael Miller'
+'Angela Martinez', 'John Williams'
+'Thomas Robinson', 'Michael Miller'
+'Thomas Robinson', 'Ivana Teach'
+'Margaret Clark', 'James Smith'
+'Margaret Clark', 'Patricia Jones'
+'Margaret Clark', 'Ivana Teach'
+'Juan Rodriguez', 'Michael Miller'
+'Juan Rodriguez', 'Ivana Teach'
+'Dorthy Lewis', 'Ivana Teach'
+'Dorthy Lewis', 'Michael Miller'
+'Daniel Lee', 'Ivana Teach'
+'Daniel Lee', 'Michael Miller'
+'Lisa Walker', 'Ivana Teach'
+'Lisa Walker', 'Michael Miller'
+'Lisa Walker', 'James Smith'
+'Paul Hall', 'Ivana Teach'
+'Paul Hall', 'Michael Miller'
+'Paul Hall', 'James Smith'
+'Nancy Allen', 'Michael Miller'
+'Nancy Allen', 'Ivana Teach'
+'Mark Young', 'John Williams'
+'Mark Young', 'Michael Miller'
+'Mark Young', 'Ivana Teach'
+'Luis Hernandez', 'Michael Miller'
+'Luis Hernandez', 'James Smith'
+'Luis Hernandez', 'John Williams'
+'Luis Hernandez', 'Ivana Teach'
+'Luis Hernandez', 'Patricia Jones'
+'Donald King', NULL
+'George Wright', NULL
+NULL, 'Mary Johnson'
+NULL, 'John Williams'
+NULL, 'Robert Brown'
+NULL, 'Linda Davis'
+*/
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Question 10
+
+-- this solution assumes that if a course is taught by a professor twice or more, we'll include in the result the records for others professors for this course as well
+/*RESULT:
+'Data Structures', 'CC10', 'Ivana Teach', '1'
+'Air Quality Engineering', 'CC15', 'Ivana Teach', '1'
+'Data Structures', 'CC10', 'James Smith', '2'
+'Data Structures', 'CC10', 'John Williams', '4'
+'Operating System Design', 'CC12', 'Patricia Jones', '5'
+'Data Structures', 'CC10', 'Michael Miller', '6'
+'Operating System Design', 'CC12', 'Michael Miller', '6'*/
+
+
+-- this solution only displays professors who have taught the courcse twice or more
+ /* RESULT:
+ 'Data Structures', 'CC10', 'Ivana Teach', '1'
+'Air Quality Engineering', 'CC15', 'Ivana Teach', '1'
+'Operating System Design', 'CC12', 'Michael Miller', '6'
+*/
+ 
+ -- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-- Question 11
+/* RESULT:
+'Arts'
+'Electronics'
+'Mechanics'
+*/

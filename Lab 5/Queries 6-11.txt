@@ -1,0 +1,98 @@
+6-
+SELECT course.name
+from course
+where course.course_code in 
+
+	(select c.course_code
+    from course as c
+    left join semester_course as s
+    on c.course_code=s.course_code
+    where s.course_code IS NULL
+    UNION
+    select x.course_code
+    from professor as p 
+    inner join department as d
+    on p.dept_id=d.dept_id
+    inner join semester_course as x
+    on x.prof_id= p.prof_id
+    where d.dept_name ='Computer Science'
+    )
+                                               
+                                              
+
+
+7- 
+select s.student_name
+from student as s
+where s.student_name LIKE 'M%' and s.age<20
+UNION
+SELECT p.prof_name
+from professor as p
+inner join semester_course as c
+on c.prof_id=p.prof_id
+where p.prof_name LIKE 'M%' 
+GROUP by p.prof_id
+HAVING count(*)>2
+
+
+
+
+8- 
+SELECT p.prof_name,p.prof_id
+from professor as p
+left join semester_course as c
+on c.prof_id=p.prof_id
+where p.dept_id BETWEEN 1 and 4
+GROUP by p.prof_id
+HAVING count(*)<2
+
+
+10-
+select p.prof_id ,p.prof_name,c.course_code, c.name
+from professor as p 
+inner join
+(select s.prof_id,s.course_code,COUNT(s.quarter) as counter
+from semester_course as s
+group by s.prof_id ,s.course_code
+having counter>=2
+) as ds
+on p.prof_id=ds.prof_id
+
+inner join course as c 
+on c.course_code=ds.course_code
+
+
+
+
+11-
+select department.dept_name
+from department 
+where department.dept_id in
+(
+select ds.dept_id from 
+(select p.prof_id, count(DISTINCT s.course_code) as counter,p.dept_id
+from semester_course as s
+right join professor as p
+using(prof_id)
+group by p.prof_id
+) as ds
+GROUP by ds.dept_id
+HAVING SUM(ds.counter)<3
+
+
+UNION
+
+SELECT d.dept_id
+from professor as x
+right join department as d
+on d.dept_id =x.dept_id
+where x.dept_id IS NULL
+)
+
+
+
+
+
+
+
+
